@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     icon: 'https://res.cloudinary.com/dbhueijx0/image/upload/v1774733661/logo-removebg-preview_qam6ys.png',
     apple: 'https://res.cloudinary.com/dbhueijx0/image/upload/v1774733661/logo-removebg-preview_qam6ys.png',
   },
+  verification: {
+    google: 'a8f9cefd66325714',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
