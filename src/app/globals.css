@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+:root {
+  --gradient-brand: linear-gradient(135deg, #3b82f6, #6366f1);
+  --gradient-brand-r: linear-gradient(135deg, #6366f1, #3b82f6);
+}
+
+/* ============================================================
+   Base resets
+   ============================================================ */
+@layer base {
+  html { scroll-behavior: smooth; }
+  ::selection { background: rgba(99, 102, 241, 0.35); color: #f1f5f9; }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0a0f1e; }
+  ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.7); }
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-dark {
+    background: rgba(10, 15, 30, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .section-padding { padding: 5rem 1.5rem; }
+
+  .glow-blue { box-shadow: 0 0 40px rgba(59, 130, 246, 0.15); }
+  .glow-indigo { box-shadow: 0 0 40px rgba(99, 102, 241, 0.15); }
+
+  /* Noise texture overlay */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+/* ============================================================
+   Section reveal animation (Intersection Observer powered)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Progress bar (for skills)
+   ============================================================ */
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-brand);
+  border-radius: 99px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   TipTap Rich Text Editor
+   ============================================================ */
+.ProseMirror {
+  outline: none;
+  min-height: 120px;
+  padding: 0.75rem;
+  color: #f1f5f9;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.ProseMirror p { margin-bottom: 0.5rem; }
+.ProseMirror ul, .ProseMirror ol { padding-left: 1.25rem; margin-bottom: 0.5rem; }
+.ProseMirror strong { font-weight: 600; }
+.ProseMirror a { color: #60a5fa; text-decoration: underline; }
+
+/* ============================================================
+   Animated gradient border
+   ============================================================ */
+@keyframes border-rotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-border {
+  background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6, #3b82f6);
+  background-size: 300% 300%;
+  animation: border-rotate 4s ease infinite;
+}
