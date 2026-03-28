@@ -49,7 +49,11 @@
     border: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  .section-padding { padding: 5rem 1.5rem; }
+  .section-padding { padding: 3rem 1.5rem; }
+
+  @media (min-width: 640px) {
+    .section-padding { padding: 4rem 1.5rem; }
+  }
 
   .glow-blue { box-shadow: 0 0 40px rgba(59, 130, 246, 0.15); }
   .glow-indigo { box-shadow: 0 0 40px rgba(99, 102, 241, 0.15); }
