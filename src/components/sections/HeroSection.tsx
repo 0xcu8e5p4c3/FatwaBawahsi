@@ -35,7 +35,7 @@ export function HeroSection({ profile, projectsCount = 0, certsCount = 0 }: Hero
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 overflow-x-hidden" style={{ paddingTop: '6rem' }}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 pt-16 lg:pt-28 pb-10 overflow-x-hidden">
       {/* Grid background */}
       <div
         className="absolute inset-0 z-0 opacity-[0.03]"
